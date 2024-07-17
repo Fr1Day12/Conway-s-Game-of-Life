@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { COLS, createEmptyGrid, DIRECTIONS, ROWS } from "./utils/utils";
+import { COLS, DIRECTIONS, ROWS, createEmptyGrid } from "./utils/utils";
 import { twMerge } from "tailwind-merge";
 import { PlayPauseButton } from "./components/PlayPauseButton";
 import { Button } from "./components/Button";
 import { Select } from "./components/Select";
+import { FaGithub } from "react-icons/fa";
 
 function App() {
   const [grid, setGrid] = useState<number[][]>(createEmptyGrid());
@@ -44,8 +45,10 @@ function App() {
     if (!playingRef.current) {
       return;
     }
+
     setGrid((currentGrid) => {
       const newGrid = currentGrid.map((arr) => [...arr]);
+
       for (let row = 0; row < ROWS; row++) {
         for (let col = 0; col < COLS; col++) {
           let liveNeighbors = 0;
@@ -71,6 +74,7 @@ function App() {
           }
         }
       }
+
       return newGrid;
     });
 
@@ -105,7 +109,8 @@ function App() {
   };
 
   return (
-    <div className="h-screen w-screen bg-blue-500 flex items-center p-4 flex-col gap-4">
+    <div className="h-screen w-screen flex items-center p-4 flex-col gap-4 relative">
+      <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#a333ee_100%)]"></div>
       <h1 className="md:text-2xl text-xl">Conway's Game of Life</h1>
       <div className="flex gap-4 items-center">
         <PlayPauseButton
@@ -153,8 +158,8 @@ function App() {
           gridTemplateColumns: `repeat(${COLS}, ${cellSize}px)`,
           gridTemplateRows: `repeat(${ROWS}, ${cellSize}px)`,
         }}>
-        {grid.map((row, originalRowIndex) =>
-          row.map((_col, originalColIndex) => (
+        {grid.map((rows, originalRowIndex) =>
+          rows.map((_col, originalColIndex) => (
             <button
               onMouseDown={handleMouseDown}
               onMouseUp={handleMouseUp}
@@ -175,6 +180,11 @@ function App() {
           ))
         )}
       </div>
+      <a
+        target="_blank"
+        href="https://github.com/techprep-gh/conways-game-of-life">
+        <FaGithub className="h-8 w-8 transition ease-in  text-gray-300 hover:text-gray-400" />
+      </a>
     </div>
   );
 }
