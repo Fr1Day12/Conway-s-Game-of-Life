@@ -4,7 +4,6 @@ import { twMerge } from "tailwind-merge";
 import { PlayPauseButton } from "./components/PlayPauseButton";
 import { Button } from "./components/Button";
 import { Select } from "./components/Select";
-import { FaGithub } from "react-icons/fa";
 
 function App() {
   const [grid, setGrid] = useState<number[][]>(createEmptyGrid());
@@ -180,11 +179,6 @@ function App() {
           ))
         )}
       </div>
-      <a
-        target="_blank"
-        href="https://github.com/techprep-gh/conways-game-of-life">
-        <FaGithub className="h-8 w-8 transition ease-in  text-gray-300 hover:text-gray-400" />
-      </a>
     </div>
   );
 }
