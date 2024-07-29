@@ -1,30 +1,17 @@
-# React + TypeScript + Vite
+Game of Life
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Описание
+"Game of Life" (Игра жизни) — это классическая компьютерная игра, основанная на клеточном автомате, придуманном британским математиком Джоном Конвеем. В игре используется двумерная сетка клеток, каждая из которых может находиться в одном из двух состояний: живая или мёртвая. Состояние каждой клетки изменяется по определённым правилам, которые зависят от состояния её соседей.
 
-Currently, two official plugins are available:
+Стек технологий
+TypeScript: Строгая типизация для повышения надежности и удобства разработки.
+React: Библиотека для построения пользовательских интерфейсов.
+Vite: Инструмент для быстрой сборки и разработки приложений.
+Tailwind CSS: Утилитарно-ориентированный CSS-фреймворк для создания адаптивных интерфейсов.
+ESLint: Инструмент для анализа кода, помогает соблюдать стандарты кодирования и избегать ошибок.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Функциональность
+Инициализация поля: выбор начальной конфигурации клеток.
+Шаг симуляции: переход к следующему поколению клеток на основе правил игры.
+Визуализация: отображение текущего состояния клеточного поля.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
